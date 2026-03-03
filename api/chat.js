@@ -104,7 +104,7 @@ module.exports = async (req, res) => {
 
         if (statusCode === 429 || errorMsg.includes("RESOURCE_EXHAUSTED")) {
             return res.status(429).json({
-                error: "Promet is receiving too many questions right now. Please try again in a moment! 😊",
+                error: "[DEBUG: REAL 429 RATE LIMIT] Promet is receiving too many questions right now. Please try again in a moment! 😊 (" + errorMsg.substring(0, 100) + ")",
             });
         }
 
