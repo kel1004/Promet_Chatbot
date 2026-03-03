@@ -1,0 +1,9 @@
+{
+  "name": "promet-chatbot",
+  "version": "1.0.0",
+  "description": "Promet — PLMar SHS Chatbot",
+  "private": true,
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0"
+  }
+}

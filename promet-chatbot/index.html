@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promet — PLMar SHS Chatbot</title>
+    <meta name="description"
+        content="Promet is the official AI chatbot assistant for Pamantasan ng Lungsod ng Marikina (PLMar) Senior High School. Get answers about SHS programs, admission requirements, and more.">
+    <meta name="keywords"
+        content="PLMar, Pamantasan ng Lungsod ng Marikina, Senior High School, SHS, chatbot, admission, Marikina">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="chat-container" id="chat-container">
+
+        <!-- Header -->
+        <header class="chat-header" id="chat-header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <div class="logo-icon">P</div>
+                    <div class="header-text">
+                        <h1>Promet</h1>
+                        <p>PLMar Senior High School Assistant</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Messages Area -->
+        <main class="messages-area" id="messages-area">
+            <div class="messages-wrapper" id="messages-wrapper">
+                <!-- Welcome message injected by JS -->
+            </div>
+
+            <!-- Quick Questions -->
+            <div class="quick-questions" id="quick-questions">
+                <button class="quick-question-btn" onclick="sendQuickQuestion('What strands are offered?')">What strands
+                    are offered?</button>
+                <button class="quick-question-btn" onclick="sendQuickQuestion('How do I apply for admission?')">How do I
+                    apply?</button>
+                <button class="quick-question-btn"
+                    onclick="sendQuickQuestion('What are the admission requirements?')">What are the
+                    requirements?</button>
+                <button class="quick-question-btn" onclick="sendQuickQuestion('Where is PLMar SHS located?')">Where is
+                    PLMar SHS?</button>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area" id="input-area">
+            <div class="input-wrapper">
+                <textarea class="chat-input" id="chat-input" placeholder="Ask about PLMar SHS..." rows="1"></textarea>
+                <button class="send-btn" id="send-button" aria-label="Send message" onclick="sendMessage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+            <p class="input-footer-text">
+                Promet may provide inaccurate info. Verify with
+                <a href="https://plmar.edu.ph" target="_blank" rel="noopener noreferrer">plmar.edu.ph</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

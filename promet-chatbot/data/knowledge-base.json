@@ -1,0 +1,102 @@
+{
+    "school": {
+        "name": "Pamantasan ng Lungsod ng Marikina",
+        "abbreviation": "PLMar",
+        "type": "Local University / Public Higher Education Institution",
+        "founded": 2003,
+        "location": "Marikina City, Metro Manila, Philippines",
+        "website": "https://plmar.edu.ph",
+        "mission": "PLMar is committed to providing accessible, quality education and producing globally competitive, socially responsible individuals for the development of Marikina City and the nation.",
+        "vision": "PLMar envisions itself as a premier learner-centered public institution of higher learning in Marikina City."
+    },
+    "seniorHighSchool": {
+        "name": "PLMar Senior High School",
+        "abbreviation": "PLMar SHS",
+        "established": "The PLMar Senior High School program was integrated around 2016 following the nationwide K-12 implementation under the Enhanced Basic Education Act of 2013 (Republic Act No. 10533).",
+        "campus": {
+            "name": "Greenheights / Concepcion I Campus",
+            "address": "Panama St., Greenheights Subd., Concepcion I, Marikina City",
+            "note": "The SHS campus is separate from the main tertiary (college) campus."
+        },
+        "gradeLevels": [
+            "Grade 11",
+            "Grade 12"
+        ],
+        "track": "Academic Track",
+        "strands": [
+            {
+                "code": "STEM",
+                "name": "Science, Technology, Engineering, and Mathematics",
+                "description": "This strand focuses on concepts and skills related to science, mathematics, engineering, and technology. It is ideal for students who plan to pursue college degrees in engineering, medicine, architecture, aviation, IT, and other science-related courses."
+            },
+            {
+                "code": "ABM",
+                "name": "Accountancy, Business, and Management",
+                "description": "This strand focuses on the basic concepts of business management, financial management, corporate operations, and all things business-related. It is ideal for students planning to take up business administration, accountancy, economics, marketing, and other business-related courses in college."
+            },
+            {
+                "code": "HUMSS",
+                "name": "Humanities and Social Sciences",
+                "description": "This strand is designed for students who want to pursue education, liberal arts, communication arts, political science, psychology, social work, and other humanities or social science-related courses in college."
+            },
+            {
+                "code": "GAS",
+                "name": "General Academic Strand",
+                "description": "The General Academic Strand (GAS) is designed for students who are still undecided about what course to take in college. It covers a broader scope of subjects from different strands, giving students flexibility in choosing their college degree."
+            }
+        ]
+    },
+    "admission": {
+        "academicYear": "2025-2026",
+        "applicationPortal": "https://ums.plmar.edu.ph/admission",
+        "applicationMethod": "Online application through the PLMar UMS (University Management System) portal",
+        "eligibility": [
+            "Must be a resident of Marikina City for at least 3 years",
+            "Must be a Junior High School completer (Grade 10 graduate) from a public or private school within Marikina City",
+            "Must have a passing general average in Grade 10"
+        ],
+        "requirements": [
+            "Duly accomplished online application form via the PLMar UMS portal",
+            "Photocopy of PSA Birth Certificate",
+            "Grade 10 Report Card (SF9 / School Form 9) with a passing average",
+            "Certificate of Good Moral Character from previous school",
+            "Proof of Marikina City Residency (e.g., Barangay Certificate, Voter's ID, or Parent's Voter's ID)",
+            "Two (2) recent 2x2 ID pictures with white background and name tag"
+        ],
+        "applicationPeriod": "Typically opens around February to March each year. For A.Y. 2025-2026, the application period was from February 14, 2025 to March 5, 2025.",
+        "notes": [
+            "Application is primarily done online through the UMS portal.",
+            "Marikina City residency is a key requirement for enrollment subsidy and priority admission.",
+            "Check the official PLMar Facebook page and website for the most updated schedule and announcements."
+        ]
+    },
+    "contact": {
+        "phone": "(02) 7369-7277",
+        "mobile": "0917-564-1079",
+        "facebookPage": "https://www.facebook.com/PLMarSeniorHighSchool/",
+        "facebookHandle": "@PLMarSeniorHighSchool",
+        "officeHours": "Monday to Friday, 8:00 AM to 5:00 PM"
+    },
+    "faqs": [
+        {
+            "question": "Is tuition free at PLMar SHS?",
+            "answer": "As a local government-funded public institution, PLMar offers subsidized or free tuition for qualified Marikina City residents. However, there may be minimal miscellaneous fees. Check with the admissions office for the latest fee structure."
+        },
+        {
+            "question": "Can non-Marikina residents enroll at PLMar SHS?",
+            "answer": "PLMar primarily serves Marikina City residents. Non-residents may have limited slots and may not qualify for the full subsidy. It is best to check the specific admission guidelines for each academic year."
+        },
+        {
+            "question": "What is the PLMAT?",
+            "answer": "The PLMAT (PLMar Admission Test) is the entrance examination for undergraduate (college) applicants. For Senior High School admission, the requirements focus on Grade 10 records and residency rather than a separate entrance exam, but applicants should check the latest admission guidelines."
+        },
+        {
+            "question": "When does the school year start?",
+            "answer": "PLMar generally follows the academic calendar set by the Commission on Higher Education (CHED) and the Department of Education (DepEd). The school year typically starts around August. Check the official announcements for the exact dates."
+        },
+        {
+            "question": "What are the school uniforms?",
+            "answer": "PLMar SHS students are required to wear the prescribed school uniform. Details about the uniform design, where to purchase, and dress code policies are provided during enrollment and orientation."
+        }
+    ]
+}
