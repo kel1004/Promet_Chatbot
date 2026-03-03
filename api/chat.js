@@ -1,10 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const fs = require("fs");
-const path = require("path");
-
-const knowledgeBase = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "..", "data", "knowledge-base.json"), "utf-8")
-);
+const knowledgeBase = require("../data/knowledge-base.json");
 
 const SYSTEM_PROMPT = `You are **Promet**, the official AI chatbot assistant of **Pamantasan ng Lungsod ng Marikina (PLMar) Senior High School (SHS)**.
 
@@ -102,16 +97,25 @@ module.exports = async (req, res) => {
         res.write("data: [DONE]\n\n");
         res.end();
     } catch (error) {
-        console.error("Chat API error:", error);
+        console.error("Chat API error:", error.message || error);
 
-        if (error.message?.includes("429") || error.message?.includes("quota")) {
+        const statusCode = error.status || error.httpStatusCode || 500;
+        const errorMsg = error.message || "Unknown error";
+
+        if (statusCode === 429 || errorMsg.includes("RESOURCE_EXHAUSTED")) {
             return res.status(429).json({
                 error: "Promet is receiving too many questions right now. Please try again in a moment! 😊",
             });
         }
 
+        if (errorMsg.includes("API_KEY_INVALID") || errorMsg.includes("API key")) {
+            return res.status(500).json({
+                error: "Promet's API key is not configured correctly. Please contact the administrator.",
+            });
+        }
+
         return res.status(500).json({
-            error: "Sorry, Promet encountered an issue. Please try again later.",
+            error: "Sorry, Promet encountered an issue. Please try again later. (" + errorMsg.substring(0, 100) + ")",
         });
     }
 };
