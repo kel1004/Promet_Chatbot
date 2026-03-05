@@ -116,6 +116,7 @@ module.exports = async (req, res) => {
 
         return res.status(500).json({
             error: "Sorry, Promet encountered an issue. Please try again later.",
+            _debug: errorMsg, // temporary — remove after debugging
         });
     }
 };
