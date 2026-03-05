@@ -80,12 +80,15 @@ module.exports = async (req, res) => {
 
         const chat = model.startChat({ history: chatHistory });
 
-        // Stream the response using SSE
+        // Call Gemini FIRST — before committing to SSE headers
+        // This way, if Gemini throws (bad API key, quota, etc.), the catch
+        // block can still return a proper JSON error response.
+        const result = await chat.sendMessageStream(message);
+
+        // Only lock into SSE after we know the stream started successfully
         res.setHeader("Content-Type", "text/event-stream");
         res.setHeader("Cache-Control", "no-cache");
         res.setHeader("Connection", "keep-alive");
-
-        const result = await chat.sendMessageStream(message);
 
         for await (const chunk of result.stream) {
             const text = chunk.text();
