@@ -120,25 +120,64 @@ module.exports = async (req, res) => {
         res.write("data: [DONE]\n\n");
         res.end();
     } catch (error) {
-        console.error("Chat API error:", error.message || error);
+        // Log the full error object so Vercel logs show the real cause
+        console.error("Chat API error — status:", error.status ?? error.httpStatusCode);
+        console.error("Chat API error — message:", error.message);
+        console.error("Chat API error — full:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
 
         const statusCode = error.status || error.httpStatusCode || 500;
         const errorMsg = error.message || "Unknown error";
 
+        // Rate limit / quota exceeded
         if (statusCode === 429 || errorMsg.includes("RESOURCE_EXHAUSTED")) {
             return res.status(429).json({
                 error: "Promet is receiving too many questions right now. Please try again in a moment! 😊",
             });
         }
 
-        if (errorMsg.includes("API_KEY_INVALID") || errorMsg.includes("API key")) {
+        // Invalid or missing API key
+        if (statusCode === 400 && errorMsg.includes("API key not valid")) {
             return res.status(500).json({
-                error: "Promet's API key is not configured correctly. Please contact the administrator.",
+                error: "Promet's API key is invalid. Please contact the administrator.",
+                debug: errorMsg,
             });
         }
 
+        if (errorMsg.includes("API_KEY_INVALID") || errorMsg.includes("API key")) {
+            return res.status(500).json({
+                error: "Promet's API key is not configured correctly. Please contact the administrator.",
+                debug: errorMsg,
+            });
+        }
+
+        // Permission denied (billing not enabled, region restriction, etc.)
+        if (statusCode === 403 || errorMsg.includes("PERMISSION_DENIED")) {
+            return res.status(500).json({
+                error: "Promet's API access was denied. This may be a billing or region issue.",
+                debug: errorMsg,
+            });
+        }
+
+        // Model not found / not available
+        if (statusCode === 404 || errorMsg.includes("not found") || errorMsg.includes("MODEL_NOT_FOUND")) {
+            return res.status(500).json({
+                error: "The AI model is currently unavailable. Please contact the administrator.",
+                debug: errorMsg,
+            });
+        }
+
+        // Billing / payment required
+        if (statusCode === 402 || errorMsg.includes("BILLING") || errorMsg.includes("billing")) {
+            return res.status(500).json({
+                error: "Promet's API requires billing to be enabled. Please contact the administrator.",
+                debug: errorMsg,
+            });
+        }
+
+        // Fallback — include debug info so you can see what went wrong
         return res.status(500).json({
             error: "Sorry, Promet encountered an issue. Please try again later.",
+            debug: `[${statusCode}] ${errorMsg}`,
         });
     }
 };
