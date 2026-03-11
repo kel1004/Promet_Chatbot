@@ -41,6 +41,26 @@ ${JSON.stringify(knowledgeBase, null, 2)}
 - Be encouraging to prospective students
 - Use emojis sparingly to keep the tone friendly but professional`;
 
+// Retry helper: retries fn up to maxRetries times for transient 500/503 errors
+async function withRetry(fn, maxRetries = 3) {
+    let lastError;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            return await fn();
+        } catch (err) {
+            lastError = err;
+            const status = err.status || err.httpStatusCode;
+            const isTransient = status === 500 || status === 503 || (err.message || "").includes("500") || (err.message || "").includes("503");
+            if (!isTransient || attempt === maxRetries) throw err;
+            // Exponential backoff: 1s, 2s, 4s
+            const delay = 1000 * Math.pow(2, attempt - 1);
+            console.warn(`Gemini transient error (attempt ${attempt}/${maxRetries}), retrying in ${delay}ms...`);
+            await new Promise((r) => setTimeout(r, delay));
+        }
+    }
+    throw lastError;
+}
+
 module.exports = async (req, res) => {
     // CORS headers
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -80,10 +100,10 @@ module.exports = async (req, res) => {
 
         const chat = model.startChat({ history: chatHistory });
 
-        // Call Gemini FIRST — before committing to SSE headers
-        // This way, if Gemini throws (bad API key, quota, etc.), the catch
+        // Call Gemini with retry FIRST — before committing to SSE headers.
+        // This way, if Gemini throws (bad API key, quota, 500, etc.), the catch
         // block can still return a proper JSON error response.
-        const result = await chat.sendMessageStream(message);
+        const result = await withRetry(() => chat.sendMessageStream(message));
 
         // Only lock into SSE after we know the stream started successfully
         res.setHeader("Content-Type", "text/event-stream");
