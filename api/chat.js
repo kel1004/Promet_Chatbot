@@ -132,6 +132,7 @@ module.exports = async (req, res) => {
         if (statusCode === 429 || errorMsg.includes("RESOURCE_EXHAUSTED")) {
             return res.status(429).json({
                 error: "Promet is receiving too many questions right now. Please try again in a moment! 😊",
+                debug: `[${statusCode}] ${errorMsg}`,
             });
         }
 
