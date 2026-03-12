@@ -86,9 +86,13 @@ module.exports = async (req, res) => {
             return res.status(500).json({ error: "API key not configured." });
         }
 
-        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+        const apiKey = process.env.GEMINI_API_KEY;
+        // Log last 4 chars of the key so we can confirm which key Vercel is using
+        console.log(`Using API key ending in: ...${apiKey ? apiKey.slice(-4) : 'MISSING'}`);
+
+        const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({
-            model: "gemini-2.0-flash",
+            model: "gemini-1.5-flash",
             systemInstruction: SYSTEM_PROMPT,
         });
 
@@ -130,9 +134,11 @@ module.exports = async (req, res) => {
 
         // Rate limit / quota exceeded
         if (statusCode === 429 || errorMsg.includes("RESOURCE_EXHAUSTED")) {
+            const apiKey = process.env.GEMINI_API_KEY;
             return res.status(429).json({
                 error: "Promet is receiving too many questions right now. Please try again in a moment! 😊",
                 debug: `[${statusCode}] ${errorMsg}`,
+                keyFingerprint: `...${apiKey ? apiKey.slice(-4) : 'MISSING'}`,
             });
         }
 
