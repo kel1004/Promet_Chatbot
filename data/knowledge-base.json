@@ -6,8 +6,61 @@
         "founded": 2003,
         "location": "Marikina City, Metro Manila, Philippines",
         "website": "https://plmar.edu.ph",
-        "mission": "PLMar is committed to providing accessible, quality education and producing globally competitive, socially responsible individuals for the development of Marikina City and the nation.",
-        "vision": "PLMar envisions itself as a premier learner-centered public institution of higher learning in Marikina City."
+        "mission": [
+            "Pamantasan ng Lungsod ng Marikina (PLMar) is committed to:",
+            "1. Providing accessible quality education, resources, opportunities, and services for student development;",
+            "2. Promoting holistic approach in lifelong learning leading to better quality of life;",
+            "3. Building an empowered, resilient, and supportive learning community of agents for positive change."
+        ],
+        "vision": "Pamantasan ng Lungsod ng Marikina is a progressive higher educational institution fostering competent, compassionate, and creative learning community dedicated to the pursuit of academic excellence, character formation, and social responsibility and accountability.",
+        "goals": "The Pamantasan ng Lungsod ng Marikina is committed in producing work-ready, career-focused and community-oriented graduates through effective and efficient organizational system consisting of individuals with professionalism and a strong sense of caring, service and collaboration.",
+        "objectives": [
+            "1. Expand access to quality higher education among lower income and disadvantaged groups;",
+            "2. Improve quality and standards of higher education, raise the level of educational outcomes and increase the social relevance of its development functions;",
+            "3. Rationalize higher education, improve its internal and external efficiency, optimize resource utilization and maximize resource generation. Expand access to quality higher education among lower income and disadvantaged groups;",
+            "4. Improve quality and standards of higher education, raise the level of educational outcomes, and increase the social relevance of its development functions;",
+            "5. Rationalize higher education, improve its internal and external efficiency, optimize resource utilization, and maximize resource generation."
+        ],
+        "The University Seal": [
+            "The official seal of PLMar features the inscriptions Pamantasan ng Lungsod ng Marikina and the founding year 2003, signifying the establishment of the university.",
+            "The mountains in the seal symbolize the towering ranges of the Cordillera and Sierra Madre, which frame the Marikina Valley, where the university is situated. The valley, traversed by the Marikina River, represents the city’s natural landscape and the foundation upon which the university stands.",
+            "The rising sun points to the eastern location of Marikina, the rays of the sun representing the 16 barangays of the city.",
+            "The gear symbolizes its industries while the shoe last, the traditional cottage industry of the city, the shoe industry.",
+            "The torch represents the noble ideas for human development for a better quality of life.",
+            "The bamboo emphasizes the resilience of the Marikina people from injurious events of the past.",
+            "The book represents an open vessel of the never-ending quest for education, a tool for competency and advancement in life."
+        ],
+        "Marikina Hymn": [
+            "Composed by: Felipe Padilla de Leon",
+            "Lyrics: ",
+            "Marikina, Aking Hirang",
+            "Bayan naming minamahal,",
+            "Sa’yong puso ay may buhay,",
+            "Ang paglaya’t angking dangal.",
+            "Chorus: ",
+            "Marikina, ika’y dakila,",
+            "Hiyas na tangi nitong bansa,",
+            "Marikina idadambana,",
+            "Ang giting mo’y di mawawala."
+        ],
+        "PLMar Hymn": [
+            "Written by: Dr. Erico M. Habijan",
+            "Music by: Dr. Elsa L. Batalla",
+            "Lyrics: ",
+            "Pamantasan ng Lungsod ng Marikina",
+            "Aming ina minamahal at sinisinta",
+            "Karangalan sa dunong at kaalaman",
+            "Lugod na iingatan, ang dalisay mong pangalan",
+            "Sa tuwina’y gabay ka, kasama sa aming buhay",
+            "Disiplina at kahusayan: mabuting panlasa",
+            "Kami’y hinubog na",
+            "",
+            "Pamantasan ng Lungsod ng Marikina",
+            "Ilaw kang tunay, sa karimmlan kaagapay",
+            "Luwalhati at pag-asa ng bayan",
+            "Sulong sa kaunlaran ‘yan ang diwa ng PLMar",
+            "Sulong sa kaunlaran ‘yan ang diwa ng PLMar"
+        ]
     },
     "seniorHighSchool": {
         "name": "PLMar Senior High School",
